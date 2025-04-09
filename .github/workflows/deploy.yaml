@@ -55,6 +55,11 @@ jobs:
       if: success()
   
       steps:
+        - name: set lower case owner name
+          run: |
+            echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+          env:
+            OWNER: '${{ github.repository_owner }}'
         # Step 1: Checkout the repository code
         - name: Checkout code
           uses: actions/checkout@v4
