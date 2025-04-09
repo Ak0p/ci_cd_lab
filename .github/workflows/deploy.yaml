@@ -25,6 +25,7 @@ jobs:
 
   compile:
     needs: test
+    if: success()
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
